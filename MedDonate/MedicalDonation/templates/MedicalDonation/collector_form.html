@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+  {% extends "Medical_Donation/base.html" %}
+    {% block body_block  %}
+
+    <div class="container">
+      <h1 style="text-align: center">Form to Add Collector</h1>
+        {% load static  %}
+
+        <form class="form-inline"   method="POST">
+
+
+            {{form.as_p}}
+            {% csrf_token %}
+
+        <input type="submit" class="btn btn-primary"  value="submit">
+        </form>
+    </div>
+    {% endblock  %}
