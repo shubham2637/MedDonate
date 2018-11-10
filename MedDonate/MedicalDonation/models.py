@@ -1,9 +1,10 @@
 from django.db import models
-
+from datetime import timedelta
+from .encrption import *
 # Create your models here.
 class Doner(models.Model):
     name = models.CharField(max_length=64)
-    address = models.CharField(max_length=128)
+    address = models.CharField(max_length=128,unique=True)
     pinCode = models.IntegerField()
     Phone_no = models.IntegerField()
     BirthDate = models.DateField()
@@ -29,6 +30,7 @@ class Collector(models.Model):
     email = models.EmailField(max_length=64)
     username = models.CharField(max_length=16,unique=True)
     password = models.CharField(max_length=16)
+    qualification = models.CharField(max_length=64)
     Driving_License = models.CharField(max_length=32)
     Driving_License_image = models.FileField(upload_to='photos/collector/DL')
     image = models.FileField(upload_to='photos/collector')
@@ -43,7 +45,8 @@ class Acceptor(models.Model):
     license_no = models.CharField(max_length=64)
     address = models.CharField(max_length=128)
     pincode = models.PositiveIntegerField()
-    #duration = models.DurationField()
+    start_time = models.TimeField(auto_now=True)
+    end_time = models.TimeField(auto_now=True)
     email = models.EmailField()
     username = models.CharField(max_length=64, unique=True)
     password = models.CharField(max_length=16)
@@ -72,12 +75,11 @@ class vehicle(models.Model):
         return (f"{self.type} {self.name}")
 
 class assigned_vehicle(models.Model):
-    vehicle_id = models.ManyToManyField(vehicle,blank=True)
-    collector_id = models.ManyToManyField(Collector,blank=True)
+    vehicle_id = models.ForeignKey(vehicle,blank=True,on_delete=models.CASCADE)
+    collector_id = models.ForeignKey(Collector,blank=True,on_delete=models.CASCADE)
     vehicle_assigned_time = models.DateTimeField(auto_now=True)
     vehicle_return_time = models.DateTimeField(auto_now=True)
-    #duration = models.DurationField()
-    destination = models.ManyToManyField(Doner,blank=True)
+    destination = models.ForeignKey(Doner,to_field='address',blank=True,on_delete=models.CASCADE)
     distance = models.FloatField()
 
     def __str__(self):
@@ -98,3 +100,8 @@ class medicine(models.Model):
 
     def __str__(self):
         return (f"{self.name} {self.tradename}")
+
+
+class medicine_legger(models.Model):
+    #donor_id = models.ForeignKey(Doner,)
+    pass

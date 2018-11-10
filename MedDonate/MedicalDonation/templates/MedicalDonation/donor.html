@@ -9,40 +9,26 @@
     <title>Medical Donor </title>
   </head>
   <body>
-
+    <h1 class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" style="text-align: center">The List of Donors</h1>
     {% load static %}
-    <div class="loginbox">
-    <img src={% static "\images\avatar.png" %} class="avatar">
-       <!-- <h1>Sign up</h1>-->
-        <form>
-            <p>name</p>
-            <input type="text" name="" placeholder="Enter Username">
-			<p>address</p>
-			<input type="text" name="" placeholder="Enter Address">
-			<p>pincode</p>
-			<input type="number" name="" placeholder="Enter Pincode">
-			<p>phone_no</p>
-			<input type="number" name="" placeholder="Enter Phone number">
-			<p>date of birth</p>
-			<input type="date" name="" placeholder="Enter DOB">
-			<p>uid no</p>
-			<input type="number" name="" placeholder="Enter UID No">
-			<p>email id</p>
-			<input type="email" name="" placeholder="Enter Email Id">
-			<p>username</p>
-			<input type="text" name="" placeholder="Enter Username">
-			<p>upload image</p>
-			<input type="file" name="" placeholder="Upload your photo">
-            <p>password</p>
-            <input type="password" name="" placeholder="Enter Password">
-            <input type="submit" name="" value="Sign Up Donor">
-           <!-- <a href="#">Lost your password?</a><br>
-            <a href="#">Don't have an account?</a>
-			-->
-        </form>
+    <div class="">
+      <table border="1" class="table table-striped table-bordered table-hover table-condensed">
+        <thead>
+          <th> <b>Name</b> </th>
+          <th> <b>Username</b>  </th>
+          <th> <b>Mobile Number</b> </th>
+        </thead>
+        {% for doner in donors %}
+        <tbody>
 
+            <td>{{doner.name}}</td>
+            <td>{{doner.username}}</td>
+            <td>{{doner.Phone_no}}</td>
+        </tbody>
+            {% endfor  %}
+\      </table>
+      <a href="/">Return to home page.</a>
     </div>
-
 
 
     <!-- <center>
