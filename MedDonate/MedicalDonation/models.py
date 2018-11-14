@@ -63,7 +63,7 @@ class vehicle(models.Model):
     RC_no =models.CharField(max_length=32)
     registration_no = models.CharField(max_length=16)
     last_servicing = models.DateField()
-    fuel = ('Petrol','Deisel','CNG','Electric')
+    fuel = ('Petrol','Diesel','CNG','Electric')
     fuel_type = models.CharField(max_length=32)
     insurence_no = models.CharField(max_length=32)
     owner_name = models.CharField(max_length=32)
