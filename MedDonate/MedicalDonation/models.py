@@ -65,7 +65,7 @@ class vehicle(models.Model):
     last_servicing = models.DateField()
     fuel = ('Petrol','Deisel','CNG','Electric')
     fuel_type = models.CharField(max_length=32)
-    insurence_no = models.CharField(max_length=32)
+    insurance_no = models.CharField(max_length=32)
     owner_name = models.CharField(max_length=32)
     Date_purchase = models.DateField()
     owner_number = models.IntegerField()
