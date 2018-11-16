@@ -1,51 +1,65 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
+
   <head>
+
     <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <title>Medical Donor </title>
+
   </head>
+
   <body>
+
     <h1 class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" style="text-align: center">The List of Donors</h1>
+
     {% load static %}
+
     <div class="">
+
       <table border="1" class="table table-striped table-bordered table-hover table-condensed">
+
         <thead>
+
           <th> <b>Name</b> </th>
+
           <th> <b>Username</b>  </th>
+
           <th> <b>Mobile Number</b> </th>
+
         </thead>
+
         {% for doner in donors %}
+
         <tbody>
 
+
+
             <td>{{doner.name}}</td>
+
             <td>{{doner.username}}</td>
+
             <td>{{doner.Phone_no}}</td>
+
         </tbody>
+
             {% endfor  %}
+
 \      </table>
+
       <a href="/">Return to home page.</a>
+
     </div>
 
-
-    <!-- <center>
-      <div class="disp">
-
-
-
-    <ol>
-          {% for doner in donors %}
-          <li>
-            {{doner}}
-          </li>
-          {% endfor  %}
-    </ol>
-  </center>
-</div>-->
-
-
   </body>
+
 </html>

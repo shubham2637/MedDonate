@@ -1,42 +1,60 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Add Collector</title>
-    <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <h1 style="text-align: center" >Doner Sign up</h1>
-    <div class="container">
-    <form method="post" action="create_Doner">
-      {% csrf_token %}
-    <div class="well">
-      <h4 style="text-align: center"><b>Doner Title</b></h4>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" name="name" class="form-control" maxlength="64" placeholder="Name">
-      </div>
-      <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" name="address1" placeholder="1234 Main St">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Address 2</label>
-    <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Apartment, studio, or floor">
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-4">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity" name="address3">
-    </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control" name="address4">
-        <option selected>Choose...</option>
+<html>
+<head>
+<title>acceptor sign up</title>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="acceptor.css">
+		<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<style>
+.button {
+    background-color: #FF3C33; /* Red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+</style>
+<body>
+<button class="button button1" onclick="goBack()">Go Back</button>
+<a input type="button" class="button button1" href="homepage.html">Home</a>
+    <div class="loginbox">
+    <img src="avatar.png" class="avatar">
+       <!-- <h1>Sign up</h1>-->
+        <form>
+            <p>name</p>
+            <input type="text" name="name" placeholder="Enter Username">
+			<p>proprietor name</p>
+            <input type="text" name="proprietor" placeholder="Enter Proprietor Name">
+			<p>license number</p>
+            <input type="text" name="license_no" placeholder="Enter License Number">
+			<p>phone_no</p>
+			<input type="number" name="Phone_no" placeholder="Enter Phone number">
+			<p>opening time</p>
+			<input type="time" name="start_time" placeholder="Enter Opening time">
+			<p>closing time</p>
+			<input type="time" name="end_time" placeholder="Enter Closing time">
+			<p>address</p>
+			<input type="text" name="address" placeholder="Enter Address">
+			<p>city</p>
+			<input id="inputCity" type="text" name="address3" placeholder="Enter City">
+			<p>state</p>
+			<select name="address4" >
+			<option selected>Choose...</option>
         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
 <option value="Andhra Pradesh">Andhra Pradesh</option>
 <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -72,56 +90,27 @@
 <option value="Uttaranchal">Uttaranchal</option>
 <option value="Uttar Pradesh">Uttar Pradesh</option>
 <option value="West Bengal">West Bengal</option>
+			</select>
+			<p>pincode</p>
+			<input type="number" name="pinCode" placeholder="Enter Pincode">
+			<p>uid no</p>
+			<input type="number" name="UID" placeholder="Enter UID No">
+			<p>email id</p>
+			<input type="email" name="email" placeholder="Enter Email Id">
+			<p>username</p>
+			<input type="text" name="username" placeholder="Enter Username">
+            <p>password</p>
+            <input type="password" name="password" placeholder="Enter Password">
+		<p>upload license photo</p>
+		<input type="file" name="License_image" placeholder="Upload license photo">
+            <input type="submit" action="create_Acceptor" value="Sign Up Acceptor">
+           <!-- <a href="#">Lost your password?</a><br>
+            <a href="#">Don't have an account?</a>
+			-->
+        </form>
 
-      </select>
     </div>
-      <div class="form-group col-md-4">
-        <label for="name">Pincode</label>
-        <input type="number" name="pincode"
-         class="form-control" maxlength="6" placeholder="Pincode">
-      </div>
-      <div class="form-group">
-        <label for="name">Phone number</label>
-        <input type="number" name="phone_no"
-        class="form-control" maxlength="10" placeholder="Phone number">
-      </div>
-      <div class="form-group">
-        <label for="name">Birth Date</label>
-        <input type="date" name="birth"
-         class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="name">Adhaar Number</label>
-        <input type="number" name="uid" class="form-control" maxlength="12" placeholder="Adhaar Number">
-      </div>
-      <div class="form-group">
-        <label for="name">E email</label>
-        <input type="email" name="email" class="form-control" placeholder="email">
-      </div>
-      <div class="form-group">
-        <label for="name">Username</label>
-        <input type="text" name="username" class="form-control" maxlength="64" placeholder="username">
-      </div>
-      <div class="form-group">
-        <label for="name">Password</label>
-        <input type="password" name="password" class="form-control" maxlength="64" placeholder="password">
-      </div>
-      <div class="form-group">
-        <label for="name">Password Again</label>
-        <input type="password" name="password2" class="form-control" maxlength="64" placeholder="password">
-      </div>
-      <div class="form-group">
-        <labe0l for="name">Image</label>
-        <input type="file" name="image" class="form-control" >
-      </div>
 
-
-      <div class="button">
-       <button class="btn btn-success col-md-offset-11">submit</button>
-      </div>
-    </div>
-    </form>
-    </div>
-    <a href="/">Return to home page.</a>
-  </body>
+</body>
+</head>
 </html>

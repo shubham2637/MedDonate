@@ -12,7 +12,7 @@ def index(request):
     context= {
 
     }
-    return render(request,"MedicalDonation/index.html",context)
+    return render(request,"MedicalDonation/homepage.html",context)
 
 
 def acceptors(request):
@@ -60,7 +60,7 @@ def acceptor_add(request):
     context ={
     "acceptor" : Acceptor.objects.all()
     }
-    return render(request, "MedicalDonation/add-acceptor.html",context)
+    return render(request, "MedicalDonation/acceptor-add.html",context)
 
 
 def create_Collector(request):
@@ -88,16 +88,26 @@ def create_Doner(request):
 
 
 def login(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
+    user = request.POST['username']
+    passw = request.POST['password']
+    user = authenticate(request, username=user, password=passw)
     if user is not None:
         login(request, user)
-        # Redirect to a success page.
-        ...
+        return render(request, "MedicalDonation/index.html",context)
+
     else:
         # Return an 'invalid login' error message.
         ...
 
 def logout_view(request):
     logout(request)
+
+def create_Acceptor(request):
+    if request.POST:
+            accep = Acceptor(name=request.POST['name'],proprietor=request.POST['proprietor'], license_no=request.POST['license_no'],Phone_no=request.POST['Phone_no'],start_time=request.POST['start_time'],end_time=request.POST['end_time'], address= (request.POST['address1']+ request.POST['address3'] + request.POST['address4']),pincode=request.POST['pinCode'],UID=request.POST['UID'],email=request.POST['email'],username=request.POST['username'],password=request.POST['password'],image=request.POST['License_image'])
+            accep.save()
+            user = User.objects.create_user(username=request.POST['username'],email=request.POST['email'],password=request.POST['password'])
+            group = Group.objects.get(name="Acceptor")
+            group.user_set.add(user)
+            user.save()
+    return HttpResponseRedirect(reverse("add_acceptor"))

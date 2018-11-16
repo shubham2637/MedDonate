@@ -1,35 +1,224 @@
-{% extends 'base.html' %}
-{% block title %}Login{% endblock %}
+<html>
+<head>
+<title>login page</title>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" type="text/css" href="login.css">
+ <script language="javascript" type="text/javascript" src="jquery-1.7.1.min.js"> 
+ </script>
+</head>
+<body>
+<div class="sky">
+  <div class="mountains">
+    <div class="mountain-1"></div>
+    <div class="mountain-2"></div>
+    <div class="land-1"></div>
+    <div class="land-2"></div>
+    <div class="land-3"></div>
+  </div>
+  <div class="mountains-base"></div>
+  <div class="light-base"></div>
+  <div class="stars"></div>
+  <div class="stars-cross"></div>
+  <div class="stars-cross-aux"></div>
+</div>
+<script>
+$(function() {
+  var nightsky = ["#280F36", "#632B6C", "#BE6590", "#FFC1A0", "#FE9C7F"];
 
-{% block content %}
-    <div id="content-container" class="container p-none">
-        <div class="lgn-container col-lg-8">
-            <form id="login-form" method="post"
-                  action="{% url 'django.contrib.auth.views.login' %}">
-                {% csrf_token %}
-                <table class="table">
-                    <tr>
-                        <td><label for="id_username">Username</label></td>
-                        <td><input id="id_username" name="username"
-                                   type="text" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="id_password">Password</label></td>
-                        <td><input id="id_password" name="password"
-                                   type="password" class="form-control"></td>
-                    </tr>
-                </table>
-                {% if form.errors %}
-                    <p class=" label label-danger">
-                        Your username and password didn't match.
-                        Please try again.
-                    </p>
-                {% endif %}
+  var star0 =
+    "<div class='star star-0' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
 
-                <input type="submit" value="Login"
-                       class="btn btn-primary pull-right" />
-                <input type="hidden" name="next" value="{{ next }}" />
-            </form>
-        </div>
-    </div>
-{% endblock content %}
+  var star1 =
+    "<div class='star star-1 blink' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
+
+  var star2 =
+    "<div class='star star-2 blink' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
+
+  var star3 =
+    "<div class='star star-3' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
+
+    var star4 =
+    "<div class='star star-4' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;'></div>";
+  
+    var star5 =
+    "<div class='star star-5' style='top:{{top}}vh;left:{{left}}vw;animation-duration:{{duration}}s;background-color:{{color}}'></div>";
+
+
+  
+  var star1pt =
+    "<div class='star star-1 blink' style='top:{{top}}%;left:{{left}}%;animation-duration:{{duration}}s;background-color:{{color}};box-shadow:0px 0px 6px 1px {{shadow}}'></div>";
+
+  var star2pt =
+    "<div class='star star-2' style='top:{{top}}%;left:{{left}}%;animation-duration:{{duration}}s;background-color:{{color}};box-shadow:0px 0px 10px 1px {{shadow}};opacity:0.7'></div>";
+
+  var blur =
+    "<div class='blur' style='top:{{top}}%;left:{{left}}%;background-color:{{color}}'></div>";
+
+  for (i = 0; i < 1000; i++) {
+    $(".stars").append(
+      star1
+        .replace("{{top}}", getRandomInt(0, 40))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(4, 10))
+    );
+
+    $(".stars").append(
+      star2
+        .replace("{{top}}", getRandomInt(20, 70))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(8, 16))
+    );
+  }
+
+  for (i = 0; i < 300; i++) {
+    $(".stars").append(
+      star0
+        .replace("{{top}}", getRandomInt(0, 50))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(2, 5))
+    );
+
+    $(".stars").append(
+      star1
+        .replace("{{top}}", getRandomInt(0, 50))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(5, 8))
+    );
+
+    $(".stars").append(
+      star2
+        .replace("{{top}}", getRandomInt(0, 50))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(8, 11))
+    );
+  }
+
+  for (i = 0; i < 200; i++) {
+    $(".stars").append(
+      star0
+        .replace("{{top}}", getRandomInt(40, 75))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(2, 6))
+    );
+
+    $(".stars").append(
+      star1
+        .replace("{{top}}", getRandomInt(40, 75))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(5, 8))
+    );
+  }
+
+  for (i = 0; i < 500; i++) {
+    $(".stars").append(
+      star0
+        .replace("{{top}}", getRandomInt(0, 100))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(2, 5))
+    );
+
+    $(".stars").append(
+      star1
+        .replace("{{top}}", getRandomInt(0, 100))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(2, 5))
+    );
+
+    $(".stars").append(
+      star2
+        .replace("{{top}}", getRandomInt(0, 100))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(3, 8))
+    );
+
+    $(".stars").append(
+      star4
+        .replace("{{top}}", getRandomInt(0, 70))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(11, 14))
+    );
+  }
+
+  for (i = 0; i < 150; i++) {
+    
+        $(".stars").append(
+      star4
+        .replace("{{top}}", getRandomInt(0, 100))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(11, 14))
+    );
+    
+    $(".stars-cross").append(
+      blur
+        .replace("{{top}}", getRandomInt(0, 100))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace(
+          "{{color}}",
+          nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
+        )
+    );
+    
+        $(".stars-cross").append(
+      star1pt
+        .replace("{{top}}", getRandomInt(0, 100))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(6, 12)).replace(
+          "{{color}}",
+          nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
+        ).
+          replace(
+          "{{shadow}}",
+          nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
+        )
+    );
+  }
+
+  for (i = 0; i < 100; i++) {
+    
+    if(i%2 == 0){
+            $(".stars").append(
+      star5
+        .replace("{{top}}", getRandomInt(0, 50))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(11, 14))
+              .replace(
+          "{{color}}",
+          nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
+        )
+    );
+              }
+    
+    $(".stars-cross-aux").append(
+      blur
+        .replace("{{top}}", getRandomInt(0, 100))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace(
+          "{{color}}",
+          nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
+        )
+    );
+    
+            $(".stars-cross-aux").append(
+      star2pt
+        .replace("{{top}}", getRandomInt(0, 100))
+        .replace("{{left}}", getRandomInt(0, 100))
+        .replace("{{duration}}", getRandomInt(4, 10)).replace(
+          "{{color}}",
+          nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
+        ).
+              replace(
+          "{{shadow}}",
+          nightsky[Math.ceil(getRandomInt(0, nightsky.length - 1))]
+        )
+    );
+  }
+
+});
+
+function getRandomInt(min, max) {
+  return Math.random() * (max - min) + min;
+}
+</script>
+</body>
+</html>
