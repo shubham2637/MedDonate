@@ -1,42 +1,44 @@
+{% load static %}
 <html>
 <head>
 <title>medicine description</title>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="medicine.css">
+    <link rel="stylesheet" type="text/css" href={% static "medicine.css" %}>
 <body>
     <div class="loginbox">
-    <img src="avatar3.png" class="avatar">
+    <img src={% static "avatar3.png" %} class="avatar">
        <!-- <h1>Sign up</h1>-->
-        <form>
+        <form method="post" action="create_Medicine" >
+          {% csrf_token %}
             <p>medicine name</p>
-            <input type="text" name="name" placeholder="Enter Username">
+            <input type="text" name="name" placeholder="Enter Medicine" required="true">
 			<p>manufacturing date</p>
-            <input type="date" name="manufacturing_date" placeholder="Enter Manufacturing Date">
+            <input type="date" name="manufacturing_date" placeholder="Enter Manufacturing Date" required="true">
 			<p>expiry date</p>
-            <input type="date" name="expiry_date" placeholder="Enter Expiry Date">
+            <input type="date" name="expiry_date" placeholder="Enter Expiry Date" required="true">
 			<p>manufacturer name</p>
-            <input type="text" name="manufacturer" placeholder="Enter Manufacturer Name">
+            <input type="text" name="manufacturer" placeholder="Enter Manufacturer Name" required="true">
 			<p>trade name</p>
-            <input type="text" name="trade_name" placeholder="Enter Trade Name">
+            <input type="text" name="trade_name" placeholder="Enter Trade Name" required="true">
 			<p>chemical composition</p>
-            <input type="text" name="chemical_composition" placeholder="Enter Chemical Composition">
+            <input type="text" name="chemical_composition" placeholder="Enter Chemical Composition" required="true">
 			<p>uses</p>
-            <input type="text" name="uses" placeholder="Enter Uses">
+            <input type="text" name="uses" placeholder="Enter Uses" required="true">
 			<p>quantity</p>
-            <input type="number" name="quantity" placeholder="Enter Quantity">
+            <input type="number" name="quantity" placeholder="Enter Quantity" required="true">
 			<p>side effects</p>
-			<input type="text" name="side_effects" placeholder="Enter Side Effects">
+			<input type="text" name="side_effects" placeholder="Enter Side Effects" required="true">
 			<p>salt composition</p>
-            <input type="text" name="salt_composition" placeholder="Enter Salt Composition">
+            <input type="text" name="salt_composition" placeholder="Enter Salt Composition" required="true" >
 			<p>dosage</p>
-            <input type="text" name="dosage" placeholder="Enter Dosage">
-            <input type="submit" action="create_Medicine" value="Submit">
+            <input type="text" name="dosage" placeholder="Enter Dosage" required="true">
+            <input type="submit"  value="Submit">
            <!-- <a href="#">Lost your password?</a><br>
             <a href="#">Don't have an account?</a>
 			-->
         </form>
-        
+
     </div>
 
 </body>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>List of Medicines </title>
+
+  </head>
+
+  <body>
+
+    <h1>The List of Medicines</h1>
+
+    {% load static %}
+
+    <div class="">
+
+      <table border="1" class="table table-striped table-bordered table-hover table-condensed">
+
+        <thead>
+
+          <th> <b>Name</b> </th>
+
+          <th> <b>Uses</b>  </th>
+
+          <th> <b>Tradename</b> </th>
+
+        </thead>
+
+        {% for c in medicines %}
+
+        <tbody>
+
+
+
+            <td>{{c.name}}</td>
+
+            <td>{{c.uses}}</td>
+
+            <td>{{c.tradename}}</td>
+
+        </tbody>
+
+        {% endfor  %}
+
+
+
+      </table>
+
+      <a href="/">Return to home page.</a>
+
+    </div>
+  </body>
+
+</html>

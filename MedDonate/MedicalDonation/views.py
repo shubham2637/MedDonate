@@ -36,6 +36,13 @@ def donors(request):
 
     return render(request, "MedicalDonation/donor.html",context)
 
+def medicines(request):
+    context = {
+    "medicines": medicine.objects.all()
+    }
+
+    return render(request, "MedicalDonation/medicines.html",context)
+
 
 
 
@@ -53,7 +60,7 @@ def donor_add(request):
     "donors": Doner.objects.all()
         }
 
-    return render(request, "MedicalDonation/add-donor.html",context)
+    return render(request, "MedicalDonation/donor1.html",context)
 
 
 def acceptor_add(request):
@@ -61,6 +68,12 @@ def acceptor_add(request):
     "acceptor" : Acceptor.objects.all()
     }
     return render(request, "MedicalDonation/acceptor-add.html",context)
+
+def medicine_add(request):
+    context ={
+    "medicines" : medicine.objects.all()
+    }
+    return render(request, "MedicalDonation/medicine-add.html",context)
 
 
 def create_Collector(request):
@@ -111,3 +124,10 @@ def create_Acceptor(request):
             group.user_set.add(user)
             user.save()
     return HttpResponseRedirect(reverse("add_acceptor"))
+
+
+def create_Medicine(request):
+    if request.POST:
+        med = medicine(name=request.POST['name'],mfgdate=request.POST['manufacturing_date'],expdate=request.POST['expiry_date'],manufacturer=request.POST['manufacturer'],tradename=request.POST['trade_name'],composition=request.POST['chemical_composition'],uses=request.POST['uses'],quantity=request.POST['quantity'],sideeffect=request.POST['side_effects'],saltcomposition=request.POST['salt_composition'],dosage=request.POST['dosage'])
+        med.save()
+    return HttpResponseRedirect(reverse("add_medicine"))

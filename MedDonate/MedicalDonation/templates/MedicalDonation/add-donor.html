@@ -1,9 +1,11 @@
+
+{% load static %}
 <html>
 <head>
-<title>acceptor sign up</title>
+<title>donor sign up</title>
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="acceptor.css">
+    <link rel="stylesheet" type="text/css" href={% static "donor.css" %}>
 		<script>
 function goBack() {
     window.history.back();
@@ -31,79 +33,74 @@ function goBack() {
 </style>
 <body>
 <button class="button button1" onclick="goBack()">Go Back</button>
-<a input type="button" class="button button1" href="homepage.html">Home</a>
+<a input type="button" class="button button1" href={% static "homepage.html" %}>Home</a>
     <div class="loginbox">
     <img src="avatar.png" class="avatar">
        <!-- <h1>Sign up</h1>-->
-        <form>
+        <form action="create_Doner" method="post">
             <p>name</p>
             <input type="text" name="name" placeholder="Enter Username">
-			<p>proprietor name</p>
-            <input type="text" name="proprietor" placeholder="Enter Proprietor Name">
-			<p>license number</p>
-            <input type="text" name="license_no" placeholder="Enter License Number">
+            <input type="time" name="end_time" placeholder="Enter Closing time">
+            <p>address</p>
+            <input type="text" name="address1" placeholder="Enter Address">
+            <p>city</p>
+            <input id="inputCity" type="text" name="address3" placeholder="Enter City">
+            <p>state</p>
+            <select name="address4" >
+            <option selected>Choose...</option>
+              <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chandigarh">Chandigarh</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+        <option value="Daman and Diu">Daman and Diu</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Lakshadweep">Lakshadweep</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Orissa">Orissa</option>
+        <option value="Pondicherry">Pondicherry</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttaranchal">Uttaranchal</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="West Bengal">West Bengal</option>
+            </select>
+            <p>pincode</p>
+            <input type="number" name="pinCode" placeholder="Enter Pincode" maxlength="6">
 			<p>phone_no</p>
-			<input type="number" name="Phone_no" placeholder="Enter Phone number">
-			<p>opening time</p>
-			<input type="time" name="start_time" placeholder="Enter Opening time">
-			<p>closing time</p>
-			<input type="time" name="end_time" placeholder="Enter Closing time">
-			<p>address</p>
-			<input type="text" name="address" placeholder="Enter Address">
-			<p>city</p>
-			<input id="inputCity" type="text" name="address3" placeholder="Enter City">
-			<p>state</p>
-			<select name="address4" >
-			<option selected>Choose...</option>
-        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
-<option value="Andhra Pradesh">Andhra Pradesh</option>
-<option value="Arunachal Pradesh">Arunachal Pradesh</option>
-<option value="Assam">Assam</option>
-<option value="Bihar">Bihar</option>
-<option value="Chandigarh">Chandigarh</option>
-<option value="Chhattisgarh">Chhattisgarh</option>
-<option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
-<option value="Daman and Diu">Daman and Diu</option>
-<option value="Delhi">Delhi</option>
-<option value="Goa">Goa</option>
-<option value="Gujarat">Gujarat</option>
-<option value="Haryana">Haryana</option>
-<option value="Himachal Pradesh">Himachal Pradesh</option>
-<option value="Jammu and Kashmir">Jammu and Kashmir</option>
-<option value="Jharkhand">Jharkhand</option>
-<option value="Karnataka">Karnataka</option>
-<option value="Kerala">Kerala</option>
-<option value="Lakshadweep">Lakshadweep</option>
-<option value="Madhya Pradesh">Madhya Pradesh</option>
-<option value="Maharashtra">Maharashtra</option>
-<option value="Manipur">Manipur</option>
-<option value="Meghalaya">Meghalaya</option>
-<option value="Mizoram">Mizoram</option>
-<option value="Nagaland">Nagaland</option>
-<option value="Orissa">Orissa</option>
-<option value="Pondicherry">Pondicherry</option>
-<option value="Punjab">Punjab</option>
-<option value="Rajasthan">Rajasthan</option>
-<option value="Sikkim">Sikkim</option>
-<option value="Tamil Nadu">Tamil Nadu</option>
-<option value="Tripura">Tripura</option>
-<option value="Uttaranchal">Uttaranchal</option>
-<option value="Uttar Pradesh">Uttar Pradesh</option>
-<option value="West Bengal">West Bengal</option>
-			</select>
-			<p>pincode</p>
-			<input type="number" name="pinCode" placeholder="Enter Pincode">
+			<input type="number" name="" placeholder="Enter Phone number">
+			<p>date of birth</p>
+			<input type="date" name="" placeholder="Enter DOB">
 			<p>uid no</p>
-			<input type="number" name="UID" placeholder="Enter UID No">
+			<input type="number" name="" placeholder="Enter UID No">
 			<p>email id</p>
-			<input type="email" name="email" placeholder="Enter Email Id">
+			<input type="email" name="" placeholder="Enter Email Id">
 			<p>username</p>
-			<input type="text" name="username" placeholder="Enter Username">
+			<input type="text" name="" placeholder="Enter Username">
+			<p>upload image</p>
+			<input type="file" name="" placeholder="Upload your photo">
             <p>password</p>
-            <input type="password" name="password" placeholder="Enter Password">
-		<p>upload license photo</p>
-		<input type="file" name="License_image" placeholder="Upload license photo">
-            <input type="submit" action="create_Acceptor" value="Sign Up Acceptor">
+            <input type="password" name="" placeholder="Enter Password">
+            <input type="submit" name="" value="Sign Up Donor">
            <!-- <a href="#">Lost your password?</a><br>
             <a href="#">Don't have an account?</a>
 			-->

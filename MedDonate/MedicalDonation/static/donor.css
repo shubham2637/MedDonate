@@ -4,7 +4,7 @@ body{
     background: url(pic3.jpg);
 	background-position: center;
 	background-repeat:no-repeat;
-	height:900px
+	height:1100px;
     background-size: cover;
     font-family: sans-serif;
 	position: relative;
@@ -12,7 +12,7 @@ body{
 
 .loginbox{
     width: 440px;
-    height: 820px;
+    height: 935px;
     background: url(lb2.jpg);;
     color: #fff;
     top: 50%;
@@ -87,68 +87,3 @@ h1{
 {
     color: #ffc107;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
