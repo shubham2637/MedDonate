@@ -5,7 +5,32 @@
 <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href={% static "acceptor.css" %}>
+    <script>
+    function goBack(){
+      window.history.back();
+    }
+    </script>
+    <style>
+    .button{
+      background-color:#FF3C33;
+      border:none;
+      color:white;
+      padding:15px 32px;
+      text-align:center;
+      display:inline-block;
+      font-size:16px;
+      margin:4px 2px;
+      cursor:pointer;
+      -webkit-transition-duration:0.4s;
+      transition-duration:0.4s;
+    }
+      .button{
+        box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0,0.19);
+    }
+    </style>
 <body>
+<button class="button button1" onclick="goBack()">Go Back</button>
+<a input type="button" class="button button1" href="\">Home</a>
     <div class="loginbox">
     <img src={% static "avatar.png" %} class="avatar">
        <!-- <h1>Sign up</h1>-->

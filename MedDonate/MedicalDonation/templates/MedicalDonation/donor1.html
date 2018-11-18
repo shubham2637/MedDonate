@@ -33,11 +33,13 @@ function goBack() {
 </style>
 <body>
 <button class="button button1" onclick="goBack()">Go Back</button>
-<a input type="button" class="button button1" href={% static "homepage.html" %}>Home</a>
+<a input type="button" class="button button1" href="/">Home</a>
     <div class="loginbox">
-    <img src="avatar.png" class="avatar">
+    <img src={% static "avatar.png" %} class="avatar">
        <!-- <h1>Sign up</h1>-->
         <form action="create_Doner" method="post">
+          {% csrf_token %}
+
             <p>name</p>
             <input type="text" name="name" placeholder="Enter Username">
 

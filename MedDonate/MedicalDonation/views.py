@@ -51,7 +51,7 @@ def collector_add(request):
     "collectors": Collector.objects.all()
     }
 
-    return render(request, "MedicalDonation/add-collector.html",context)
+    return render(request, "MedicalDonation/collector-add.html",context)
 
 
 
@@ -78,7 +78,7 @@ def medicine_add(request):
 
 def create_Collector(request):
     if request.POST:
-            coll = Collector(name=request.POST['name'], address= (request.POST['address1']+ request.POST['address2'] + request.POST['address3']), pinCode=request.POST['pincode'], Phone_no=request.POST['phone_no'],BirthDate=request.POST['birth'], UID=request.POST['uid'], email=request.POST['email'],username=request.POST['username'], password=request.POST['password'], image=request.POST['image'] )
+            coll = Collector(name=request.POST['name'], address= (request.POST['address1']+ request.POST['address2'] + request.POST['address3']), pinCode=request.POST['pincode'], Phone_no=request.POST['phone_no'],BirthDate=request.POST['birth'], UID=request.POST['uid'], email=request.POST['email'],username=request.POST['username'], password=request.POST['password'], image=request.POST['image'] ,Driving_License_image=request.POST['Driving_License_image'],qualification=request.POST['qualification'],Driving_License=request.POST['Driving_License'])
             coll.save()
             user = User.objects.create_user(username=request.POST['username'],email=request.POST['email'],password=request.POST['password'])
             user.last_name = ' '
@@ -90,7 +90,7 @@ def create_Collector(request):
 
 def create_Doner(request):
     if request.POST:
-            don = Doner(name=request.POST['name'], address= (request.POST['address1']+ request.POST['address2'] + request.POST['address3']), pinCode=request.POST['pincode'], Phone_no=request.POST['phone_no'],BirthDate=request.POST['birth'], UID=request.POST['uid'], email=request.POST['email'],username=request.POST['username'], password=request.POST['password'], image=request.POST['image'] )
+            don = Doner(name=request.POST['name'], address= (request.POST['address1'] + request.POST['address3']), pinCode=request.POST['pinCode'], Phone_no=request.POST['Phone_no'],BirthDate=request.POST['birth'], UID=request.POST['uid'], email=request.POST['email'],username=request.POST['username'], password=request.POST['password'], image=request.POST['image'] )
             don.save()
             user = User.objects.create_user(username=request.POST['username'],email=request.POST['email'],password=request.POST['password'])
             user.last_name = ' '
