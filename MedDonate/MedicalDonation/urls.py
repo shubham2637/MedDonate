@@ -1,10 +1,17 @@
 from django.urls import path,include
 from . import views
-
+from django.contrib.auth.views import LoginView,LogoutView
 urlpatterns =[
 
 path("", views.index, name="index"),
-path('account/', include('django.contrib.auth.urls')),
+
+path("collector-login", LoginView.as_view(template_name="MedicalDonation/Collector-login.html"), name="Collectorlogin"),
+
+path("acceptor-login", LoginView.as_view(template_name="MedicalDonation/Acceptor-login.html"), name="Acceptorlogin"),
+
+path("donor-login", LoginView.as_view(template_name="MedicalDonation/Donor-login.html"), name="Donorlogin"),
+
+path("logout", LogoutView.as_view, name="logout"),
 
 path("collector", views.collectors, name= "Collector_view"),
 
@@ -13,6 +20,13 @@ path("donor", views.donors, name= "Donor_view"),
 path("acceptor", views.acceptors, name= "Acceptor_view"),
 
 path("medicines", views.medicines, name= "Medicine_view"),
+
+path("acceptor-home", views.acceptor_dash, name="acceptorhome"),
+
+path("collector-home", views.collector_dash, name="collectorhome"),
+
+path("donor-home", views.donor_dash, name="donorhome"),
+
 
 path("add-collector", views.collector_add, name="Add_Collector"),
 
@@ -31,7 +45,6 @@ path("create_Acceptor", views.create_Acceptor),
 path("create_Medicine", views.create_Medicine),
 
 path("login", views.login)
-
 
 
 ]

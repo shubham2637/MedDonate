@@ -1,0 +1,128 @@
+{% load static %}
+<html>
+<head>
+<title>collector login successful page</title>
+<meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href={% static "new_2.css" %}>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+<style>
+.button {
+    background-color: #FF3C33; /* Red */
+    border-style: solid;
+	border-color:black;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button1 {
+    box-shadow: 0 8px 16px 0 rgba(187, 223, 112,0.3), 0 6px 20px 0 rgba(187, 223, 112,0.9);
+}
+body{
+    margin: 0;
+    padding: 0;
+    background: url({% static 'sunset.jpg' %});
+	background-position: center;
+	background-repeat:no-repeat;
+    background-size: cover;
+	height:1300px;
+    font-family: sans-serif;
+	position: relative;
+}
+.loginbox{
+    width: 800px;
+    height: 900px;
+    background: url({% static 'hands.jpg' %});
+	 background-size: cover;
+	 background-position: center;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+.avatar{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: relative;
+    bottom:50px;
+    left: calc(50% - 50px);
+}
+.loginbox {
+    border: 2px solid;
+    padding: 100px;
+    box-shadow: 5px 10px 8px #000000;
+}
+h1 {
+  font-size: 4em;
+  -webkit-text-stroke: 3px darkgrey;
+  -webkit-text-fill-color: white;
+  -webkit-animation: fill 0.5s infinite alternate;
+  text-align:center;
+  top:100px;
+}
+
+@-webkit-keyframes fill {
+  from {
+    -webkit-text-fill-color: #ff0066;
+  }
+  to {
+    -webkit-text-fill-color:  #ffffff;
+  }
+  .button3 {
+   position:absolute;
+    transition: .5s ease;
+    top: 50%;
+    left: 50%;
+}
+}
+</style>
+<body background={% static "sunset.jpg" %}>
+<button class="button button1" onclick="goBack()">Go Back</button>
+<a input type="button" class="button button1" href="C:\Users\HP\Desktop\project dbms\homepage.html">Home</a>
+<h1> Hello Collector</h1>
+ <div class="loginbox">
+ <img src={% static "avatar.png" %} class="avatar">
+ <section class="left" align="left">
+ <button class="button button1 button3">Edit</button>
+ </section>
+ <br>
+ <br>
+ <br>
+ <br>
+ <section class="left" align="right">
+ <a input type="button" class="button button1" href="asjobs.html">Assigned Jobs</a>
+ </section>
+ <br>
+ <br>
+ <br>
+ <br>
+  <section class="right" align="left">
+ <a input type="button" class="button button1" href="comjobs.html">Completed Jobs</a>
+ </section>
+  <br>
+ <br>
+ <br>
+ <br>
+<section class="left" align="right">
+ <button class="button button1">Logout</button>
+ </section>
+ </div>
+</body>
+</head>
+</html>

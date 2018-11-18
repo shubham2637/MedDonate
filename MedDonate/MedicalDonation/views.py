@@ -100,20 +100,6 @@ def create_Doner(request):
     return HttpResponseRedirect(reverse("add_donor"))
 
 
-def login(request):
-    user = request.POST['username']
-    passw = request.POST['password']
-    user = authenticate(request, username=user, password=passw)
-    if user is not None:
-        login(request, user)
-        return render(request, "MedicalDonation/index.html",context)
-
-    else:
-        # Return an 'invalid login' error message.
-        ...
-
-def logout_view(request):
-    logout(request)
 
 def create_Acceptor(request):
     if request.POST:
@@ -131,3 +117,32 @@ def create_Medicine(request):
         med = medicine(name=request.POST['name'],mfgdate=request.POST['manufacturing_date'],expdate=request.POST['expiry_date'],manufacturer=request.POST['manufacturer'],tradename=request.POST['trade_name'],composition=request.POST['chemical_composition'],uses=request.POST['uses'],quantity=request.POST['quantity'],sideeffect=request.POST['side_effects'],saltcomposition=request.POST['salt_composition'],dosage=request.POST['dosage'])
         med.save()
     return HttpResponseRedirect(reverse("add_medicine"))
+
+
+def login(request):
+    context = {
+    "collectors": Collector.objects.all()
+    }
+    return render(request, "MedicalDonation/login.html",context)
+
+def acceptor_dash(request):
+    context ={
+    "acceptor" : Acceptor.objects.all(),
+    "collector":Collector.objects.all()
+    }
+    return render(request, "MedicalDonation/acceptor_home.html",context)
+
+
+def collector_dash(request):
+    context ={
+    "acceptor" : Acceptor.objects.all(),
+    "collector":Collector.objects.all()
+    }
+    return render(request, "MedicalDonation/collector_home.html",context)
+
+def donor_dash(request):
+    context ={
+    "acceptor" : Acceptor.objects.all(),
+    "collector":Collector.objects.all()
+    }
+    return render(request, "MedicalDonation/donor_home.html",context)
