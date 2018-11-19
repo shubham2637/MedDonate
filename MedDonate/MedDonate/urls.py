@@ -18,7 +18,7 @@ from django.urls import path,include
 from django.conf.urls import url
 from MedicalDonation import views
 from django.contrib.auth.views import LoginView
-
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),

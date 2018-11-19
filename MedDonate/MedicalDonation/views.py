@@ -6,8 +6,8 @@ from django.urls import reverse
 from .models import *
 from django.contrib.auth.models import User,Group
 from django.contrib.auth import login,logout,authenticate
-
-
+from django.core.files.images import ImageFile
+from django.core.files.storage import FileSystemStorage
 def index(request):
     context= {
 
@@ -83,7 +83,15 @@ def medicine_add(request):
 
 def create_Collector(request):
     if request.POST:
-            coll = Collector(name=request.POST['name'], address= (request.POST['address1']+ request.POST['address2'] + request.POST['address3']), pinCode=request.POST['pincode'], Phone_no=request.POST['phone_no'],BirthDate=request.POST['birth'], UID=request.POST['uid'], email=request.POST['email'],username=request.POST['username'], password=request.POST['password'], image=request.POST['image'] ,Driving_License_image=request.POST['Driving_License_image'],qualification=request.POST['qualification'],Driving_License=request.POST['Driving_License'])
+            coll = Collector(name=request.POST['name'], address= (request.POST['address']+ request.POST['address3'] + request.POST['address4']), pinCode=request.POST['pincode'], Phone_no=request.POST['phone_no'],BirthDate=request.POST['birth'], UID=request.POST['uid'], email=request.POST['email'],username=request.POST['username'], password=request.POST['password'], image=request.FILES['image'],Driving_License_image=request.FILES['Driving_License_image'],qualification=request.POST['qualification'],Driving_License=request.POST['Driving_license'])
+            image=request.FILES['image']
+            Driving_License_image=request.FILES['Driving_License_image']
+            fs = FileSystemStorage()
+            filename = fs.save(username, image)
+            uploaded_file_url = fs.url(filename)
+            fs = FileSystemStorage()
+            filename = fs.save(username, Driving_License_image)
+            uploaded_file_url = fs.url(filename)
             coll.save()
             user = User.objects.create_user(username=request.POST['username'],email=request.POST['email'],password=request.POST['password'])
             user.last_name = ' '
@@ -95,8 +103,13 @@ def create_Collector(request):
 
 def create_Doner(request):
     if request.POST:
-            don = Doner(name=request.POST['name'], address= (request.POST['address1'] + request.POST['address3']), pinCode=request.POST['pinCode'], Phone_no=request.POST['Phone_no'],BirthDate=request.POST['birth'], UID=request.POST['uid'], email=request.POST['email'],username=request.POST['username'], password=request.POST['password'], image=request.POST['image'] )
+            don = Doner(name=request.POST['name'], address= (request.POST['address1'] + request.POST['address3']), pinCode=request.POST['pinCode'], Phone_no=request.POST['Phone_no'],BirthDate=request.POST['birth'], UID=request.POST['uid'], email=request.POST['email'],username=request.POST['username'], password=request.POST['password'], image=request.FILES['image'] )
             don.save()
+            username=request.POST['username']
+            image=request.FILES['image']
+            fs = FileSystemStorage()
+            filename = fs.save(username, image)
+            uploaded_file_url = fs.url(filename)
             user = User.objects.create_user(username=request.POST['username'],email=request.POST['email'],password=request.POST['password'])
             user.last_name = ' '
             group = Group.objects.get(name="Donor")
@@ -108,8 +121,13 @@ def create_Doner(request):
 
 def create_Acceptor(request):
     if request.POST:
-            accep = Acceptor(name=request.POST['name'],proprietor=request.POST['proprietor'], license_no=request.POST['license_no'],Phone_no=request.POST['Phone_no'],start_time=request.POST['start_time'],end_time=request.POST['end_time'], address= (request.POST['address1']+ request.POST['address3'] + request.POST['address4']),pincode=request.POST['pinCode'],UID=request.POST['UID'],email=request.POST['email'],username=request.POST['username'],password=request.POST['password'],image=request.POST['License_image'])
+            accep = Acceptor(name=request.POST['name'],proprietor=request.POST['proprietor'], license_no=request.POST['license_no'],Phone_no=request.POST['Phone_no'],start_time=request.POST['start_time'],end_time=request.POST['end_time'], address= (request.POST['address1']+ request.POST['address3'] + request.POST['address4']),pincode=request.POST['pinCode'],UID=request.POST['UID'],email=request.POST['email'],username=request.POST['username'],password=request.POST['password'],image=request.FILES['License_image'])
             accep.save()
+            username=request.POST['username']
+            image=request.FILES['License_image']
+            fs = FileSystemStorage()
+            filename = fs.save(username, image)
+            uploaded_file_url = fs.url(filename)
             user = User.objects.create_user(username=request.POST['username'],email=request.POST['email'],password=request.POST['password'])
             group = Group.objects.get(name="Acceptor")
             group.user_set.add(user)

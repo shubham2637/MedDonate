@@ -33,7 +33,7 @@ class Collector(models.Model):
     qualification = models.CharField(max_length=64)
     Driving_License = models.CharField(max_length=32)
     Driving_License_image = models.FileField(upload_to='photos/collector/DL')
-    image = models.FileField(upload_to='photos/collector')
+    image = models.FileField(upload_to='photos/collector/image')
 
     def __str__(self):
          return (f"{self.name} {self.username} {self.Phone_no}")

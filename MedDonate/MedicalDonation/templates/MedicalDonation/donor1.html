@@ -37,7 +37,7 @@ function goBack() {
     <div class="loginbox">
     <img src={% static "avatar.png" %} class="avatar">
        <!-- <h1>Sign up</h1>-->
-        <form action="create_Doner" method="post">
+        <form action="create_Doner" method="post" enctype="multipart/form-data">
           {% csrf_token %}
 
             <p>name</p>

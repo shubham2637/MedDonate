@@ -34,7 +34,7 @@
     <div class="loginbox">
     <img src={% static "avatar.png" %} class="avatar">
        <!-- <h1>Sign up</h1>-->
-        <form action="create_Collector" method="post">
+        <form action="create_Collector" method="post" enctype="multipart/form-data">
           {% csrf_token %}
             <p>name</p>
             <input type="text" name="name" placeholder="Enter Username">
@@ -82,13 +82,13 @@
 <option value="West Bengal">West Bengal</option>
 			</select>
 			<p>pincode</p>
-			<input type="number" name="pinCode" placeholder="Enter Pincode">
+			<input type="number" name="pincode" placeholder="Enter Pincode">
 			<p>phone_no</p>
-			<input type="number" name="Phone_no" placeholder="Enter Phone number">
+			<input type="number" name="phone_no" placeholder="Enter Phone number">
 			<p>date of birth</p>
-			<input type="date" name="BirthDate" placeholder="Enter DOB">
+			<input type="date" name="birth" placeholder="Enter DOB">
 			<p>uid no</p>
-			<input type="number" name="UID" placeholder="Enter UID No">
+			<input type="number" name="uid" placeholder="Enter UID No">
 			<p>email id</p>
 			<input type="email" name="email" placeholder="Enter Email Id">
 			<p>username</p>
@@ -115,6 +115,10 @@
 			-->
         </form>
     </div>
+    {% if uploaded_file_url %}
+    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  {% endif %}
+
 </body>
 </head>
 </html>

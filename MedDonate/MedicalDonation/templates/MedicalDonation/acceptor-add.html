@@ -37,7 +37,7 @@
     <div class="loginbox">
     <img src={% static "avatar.png" %} class="avatar">
        <!-- <h1>Sign up</h1>-->
-        <form method="post" action="create_Acceptor">
+        <form method="post" action="create_Acceptor" enctype="multipart/form-data">
           {% csrf_token %}
             <p>name</p>
             <input type="text" name="name" placeholder="Enter Username">
