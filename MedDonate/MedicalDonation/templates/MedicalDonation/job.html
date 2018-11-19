@@ -1,35 +1,82 @@
+<!DOCTYPE html>
 
-<html>
-<head>
-<title>jobs description</title>
-<meta charset="utf-8">
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="jobs.css">
-<body>
-    <div class="loginbox">
-    <img src="avatar3.png" class="avatar">
-       <!-- <h1>Sign up</h1>-->
-        <form>
-            <p>donor id</p>
-            <input type="text" name="donor_id" placeholder="Enter Donor Id">
-			<p>collector id</p>
-			<input type="text" name="collector_id" placeholder="Enter Collector Id">
-			<p>acceptor id</p>
-			<input type="text" name="acceptor_id" placeholder="Enter Acceptor Id">
-            <p>medicine id</p>
-			<input type="text" name="medicine_id" placeholder="Enter Medicine Id">
-			<p>vehicle id</p>
-			<input type="text" name="vehicle_id" placeholder="Enter Vehicle Id">
-			<p>date</p>
-			<input type="date" name="date" placeholder="Enter Date">
-            <input type="submit" name="" value="Submit">
-           <!-- <a href="#">Lost your password?</a><br>
-            <a href="#">Don't have an account?</a>
-			-->
-        </form>
-        
-    </div>
 
-</body>
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <title>Medical Collector </title>
+
+  </head>
+
+  <body>
+
+    <h1>The List of Collectors</h1>
+
+    {% load static %}
+
+    <div class="">
+
+      <table border="1" class="table table-striped table-bordered table-hover table-condensed">
+
+        <thead>
+
+          <th> <b>Date</b> </th>
+
+          <th> <b>Job ID</b> </th>
+
+          <th> <b>Donor ID</b> </th>
+
+          <th> <b>Collector ID</b> </th>
+
+          <th> <b>Acceptor ID</b> </th>
+
+          <th> <b>Medicine ID</b> </th>
+
+          <th> <b>vehicle ID</b> </th>
+
+
+        </thead>
+
+        {% for j in jobs %}
+
+        <tbody>
+
+            <td>{{j.date}}</td>
+
+            <td>{{j.id}}</td>
+
+            <td>{{j.donor_id}}</td>
+
+            <td>{{j.collector_id}}</td>
+
+            <td>{{j.acceptor_id}}</td>
+
+            <td>{{j.medicine_id}}</td>
+
+            <td>{{j.vehicle_id}}</td>
+
+
+        </tbody>
+
+        {% endfor  %}
+
+
+
+      </table>
+
+      <a href="/">Return to home page.</a>
+
+    </div>
+  </body>
+
 </html>

@@ -21,6 +21,8 @@ path("acceptor", views.acceptors, name= "Acceptor_view"),
 
 path("medicines", views.medicines, name= "Medicine_view"),
 
+path("job",views.jobs, name="job_view"),
+
 path("acceptor-home", views.acceptor_dash, name="acceptorhome"),
 
 path("collector-home", views.collector_dash, name="collectorhome"),
@@ -44,7 +46,7 @@ path("create_Acceptor", views.create_Acceptor),
 
 path("create_Medicine", views.create_Medicine),
 
-path("login", views.login)
+
 
 
 ]

@@ -1,35 +1,137 @@
-{% extends 'base.html' %}
-{% block title %}Login{% endblock %}
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<title>MedDonate</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-{% block content %}
-    <div id="content-container" class="container p-none">
-        <div class="lgn-container col-lg-8">
-            <form id="login-form" method="post"
-                  action="{% url 'django.contrib.auth.views.login' %}">
-                {% csrf_token %}
-                <table class="table">
-                    <tr>
-                        <td><label for="id_username">Username</label></td>
-                        <td><input id="id_username" name="username"
-                                   type="text" class="form-control"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="id_password">Password</label></td>
-                        <td><input id="id_password" name="password"
-                                   type="password" class="form-control"></td>
-                    </tr>
-                </table>
-                {% if form.errors %}
-                    <p class=" label label-danger">
-                        Your username and password didn't match.
-                        Please try again.
-                    </p>
-                {% endif %}
+	<style type="text/css">
+		.custom-button-student {
+			background-color: #05f;
+			color: white;
+			font-size: 14px;
+			padding: 18px;
+		}
 
-                <input type="submit" value="Login"
-                       class="btn btn-primary pull-right" />
-                <input type="hidden" name="next" value="{{ next }}" />
-            </form>
-        </div>
-    </div>
-{% endblock content %}
+		.custom-button-parent {
+			background-color: #05f;
+			color: white;
+			font-size: 14px;
+			padding: 18px;
+		}
+
+		.custom-button-teacher {
+			background-color: #ff4c20;
+			color: white;
+			font-size: 14px;
+			padding: 18px;
+		}
+
+		.navbar-inverse {
+			background-color: #05f;
+		}
+
+		.btn {
+			border-radius: 0px !important;
+		}
+
+		.navbar-inverse .navbar-nav>li>a {
+			color: white !important;
+		}
+
+		.navbar-inverse .navbar-brand {
+			color: white !important;
+		}
+
+		.padding-right-8 {
+			padding-right: 8% !important;
+		}
+
+		.navbar {
+			min-height: 70px !important;
+		}
+
+		.padding-top-8 {
+			padding-top: 8px;
+		}
+	</style>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid padding-top-8">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/>MedDonate</a>
+			</div>
+			<ul class="nav navbar-nav">
+			</ul>
+			<ul class="nav navbar-nav navbar-right padding-right-8">
+				<li><a href="#">Join a Group</a></li>
+				<li><a href="#" style="background-color: #ff4c20"> Login</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6" style="margin-top: 8%;">
+				<img src="https://www.newsfirst.lk/wp-content/uploads/2016/03/medicine-768x382.jpg" style="width:80%;">
+			</div>
+			<div class="col-md-6" style="margin-top: 10%; color: white;">
+				<h1 style="color: #191d9b;"><b>The world Largest community</b></h1>
+				<h4 style="color: black;">Millions of learners around the world use Edmodo to find the resources they need and
+					connect with educators.</h4>
+				<div class="row">
+					<div class="col-md-4">
+						<button text="tooltip" class="btn custom-button-teacher btn-lg" id="donorButton"><b>I am a Donor</b></button>
+					</div>
+					<div class="col-md-4">
+						<button class="btn custom-button-student btn-lg" id="collectorButton"><b>I am a Collector</b></button>
+					</div>
+					<div class="col-md-4">
+						<button class="btn custom-button-parent btn-lg" id="acceptorButton"><b>I am a Acceptor</b></button>
+					</div>
+				</div>
+			</div>
+			<div id="login" class="col-md-4" style="margin-top:5%">
+
+				<div class="well">
+						<i class="fa fa-window-close" id="close" style="float: right;" aria-hidden="true"></i>
+
+					<div class="row">
+				<div class=col-md-4>
+					<button class="btn btn-info">Login</button>
+				</div>
+				<div class=col-md-4>
+					<button class="btn btn-info">Register</button>
+				</div>
+			</div>
+			</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	$(document).ready(function(){
+	$('#login').hide();
+    $("#donorButton").hover(function(){
+        $("#login").show();
+});
+$("#acceptorButton").hover(function(){
+        $("#login").show();
+});
+$("#collectorButton").hover(function(){
+        $("#login").show();
+});
+   $("#close").click(function(){
+	   $("#login").hide();
+   })
+})
+
+</script>
+
+</html>

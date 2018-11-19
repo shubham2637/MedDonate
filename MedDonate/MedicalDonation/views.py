@@ -43,7 +43,12 @@ def medicines(request):
 
     return render(request, "MedicalDonation/medicines.html",context)
 
+def jobs(request):
+    context = {
+    "jobs": job.objects.all()
+    }
 
+    return render(request, "MedicalDonation/job.html",context)
 
 
 def collector_add(request):
