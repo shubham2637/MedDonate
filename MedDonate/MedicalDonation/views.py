@@ -157,9 +157,9 @@ def login(request):
     }
     return render(request, "MedicalDonation/login.html",context)
 @login_required
-def acceptor_dash(request,usernam):
+def acceptor_dash(request,username):
     context ={
-    "acceptor" : Acceptor.objects.filter(username=usernam),
+    "acceptor" : Acceptor.objects.filter(username=username),
     "collector":Collector.objects.all()
     }
     return render(request, "MedicalDonation/acceptor_home.html",context)
@@ -173,9 +173,9 @@ def collector_dash(request,username):
     }
     return render(request, "MedicalDonation/collector_home.html",context)
 
-def donor_dash(request,usernam):
+def donor_dash(request,username):
     context ={
-    "donor" : Acceptor.objects.filter(username=usernam),
+    "donor" : Acceptor.objects.filter(username=username),
     "collector":Collector.objects.all()
     }
     return render(request, "MedicalDonation/donor_home.html",context)
