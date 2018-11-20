@@ -1,7 +1,7 @@
 {% load static %}
 <html>
 <head>
-<title>Welcome Acceptor</title>
+<title>Welcome {{acceptor.username}}</title>
 <meta charset="utf-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href={% static "new_2.css" %}>
@@ -99,7 +99,7 @@ h1 {
  <div class="loginbox">
  <img src={% static "avatar.png" %} class="avatar">
  <section class="left" align="left">
- <button class="button button1 button3">Edit</button>
+ <!-- <button class="button button1 button3"></button> -->
  </section>
  <br>
  <br>
@@ -120,7 +120,7 @@ h1 {
  <br>
  <br>
 <section class="left" align="right">
- <button class="button button1" action="logout">Logout</button>
+ <button class="button button1" action="logout"><a href="{% url 'logout' %}"></a>Logout</button>
  </section>
  </div>
 </body>

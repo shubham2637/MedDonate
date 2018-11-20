@@ -9,7 +9,7 @@ path("", views.index, name="index"),
 
 path("collector-login", LoginView.as_view(template_name="MedicalDonation/Collector-login.html"), name="Collectorlogin"),
 
-path("acceptor-login", LoginView.as_view(template_name="MedicalDonation/Acceptor-login.html"), name="Acceptorlogin"),
+path("acceptor-login",LoginView.as_view(template_name="MedicalDonation/Acceptor-login.html"), name="Acceptorlogin"),
 
 path("donor-login", LoginView.as_view(template_name="MedicalDonation/Donor-login.html"), name="Donorlogin"),
 
@@ -25,11 +25,13 @@ path("medicines", views.medicines, name= "Medicine_view"),
 
 path("job",views.jobs, name="job_view"),
 
-path("acceptor-home", views.acceptor_dash, name="acceptorhome"),
 
-path("collector-home", views.collector_dash, name="collectorhome"),
 
-path("donor-home", views.donor_dash, name="donorhome"),
+path("acceptor-home/<str:username>", views.acceptor_dash, name="acceptorhome"),
+
+path("collector-home/<str:username>", views.collector_dash, name="collectorhome"),
+
+path("donor-home/<str:username>", views.donor_dash, name="donorhome"),
 
 
 path("add-collector", views.collector_add, name="Add_Collector"),
@@ -39,6 +41,8 @@ path("add-donor", views.donor_add, name="add_donor"),
 path("add-acceptor", views.acceptor_add, name="add_acceptor"),
 
 path("medicine-add", views.medicine_add, name="add_medicine"),
+
+
 
 path("create_Collector", views.create_Collector),
 

@@ -11,8 +11,8 @@ class Doner(models.Model):
     UID = models.IntegerField(unique=True)
     email = models.EmailField(max_length=64)
     username = models.CharField(max_length=16,unique=True)
-    password = models.CharField(max_length=16)
-    image = models.FileField(upload_to='photos/doner')
+    #password = models.CharField(max_length=16)
+    image = models.ImageField(upload_to='doner')
 
 
     def __str__(self):
@@ -29,11 +29,11 @@ class Collector(models.Model):
     UID = models.IntegerField(unique=True)
     email = models.EmailField(max_length=64)
     username = models.CharField(max_length=16,unique=True)
-    password = models.CharField(max_length=16)
+    #password = models.CharField(max_length=16)
     qualification = models.CharField(max_length=64)
     Driving_License = models.CharField(max_length=32)
-    Driving_License_image = models.FileField(upload_to='photos/collector/DL')
-    image = models.FileField(upload_to='photos/collector/image')
+    Driving_License_image = models.ImageField(upload_to='photos/collector/DL')
+    image = models.ImageField(upload_to='collector/image')
 
     def __str__(self):
          return (f"{self.name} {self.username} {self.Phone_no}")
@@ -50,9 +50,9 @@ class Acceptor(models.Model):
     end_time = models.TimeField(auto_now=True)
     email = models.EmailField()
     username = models.CharField(max_length=64, unique=True)
-    password = models.CharField(max_length=16)
+    #password = models.CharField(max_length=16)
     Phone_no = models.IntegerField()
-    image = models.FileField(upload_to='photos/acceptor')
+    image = models.ImageField(upload_to='acceptor')
 
 
     def __str__(self):

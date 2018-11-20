@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+{% load staticfiles %}
 <html lang="en" dir="ltr">
 
   <head>
@@ -15,11 +15,37 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <title>Medical Donor </title>
+    function goBack() {
+    window.history.back();
+}
+</script>
+<style>
+.button {
+    background-color: #FF3C33; /* Red */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button1 {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+</style>
 
   </head>
 
   <body>
-
+{% csrf_token %}
+<button class="button button1" onclick="goBack()">Go Back</button>
+<a input type="button" class="button button1" href="/">Home</a>
     <h1 class="nav nav-pills nav-stacked" data-spy="affix" data-offset-top="205" style="text-align: center">The List of Donors</h1>
 
     {% load static %}
@@ -36,6 +62,8 @@
 
           <th> <b>Mobile Number</b> </th>
 
+          <th> <b>Image</b> </th>
+
         </thead>
 
         {% for doner in donors %}
@@ -49,6 +77,8 @@
             <td>{{doner.username}}</td>
 
             <td>{{doner.Phone_no}}</td>
+            <!-- <td>{{doner.image}}</td> -->
+            <td><img  src={% static "/{{donor.image.url}}" %} alt={{donor.image}} style="width:500px;height:320px"/></td>
 
         </tbody>
 
