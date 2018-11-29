@@ -9,7 +9,7 @@ from django.contrib.auth.models import User,Group
 from django.contrib.auth import login,logout,authenticate
 from django.core.files.images import ImageFile
 from django.core.files.storage import FileSystemStorage
-
+from datetime import timedelta,datetime
 
 
 def index(request):
@@ -48,9 +48,16 @@ def medicines(request):
 
     return render(request, "MedicalDonation/medicines.html",context)
 
-def jobs(request):
+def jobs_assigned(request):
     context = {
-    "jobs": job.objects.all()
+    "jobs": job.objects.filter(date__gte=datetime.now(tz=None))
+    }
+
+    return render(request, "MedicalDonation/job.html",context)
+
+def jobs_completed(request):
+    context = {
+    "jobs": job.objects.filter(date__lt=datetime.now(tz=None))
     }
 
     return render(request, "MedicalDonation/job.html",context)
@@ -78,7 +85,7 @@ def acceptor_add(request):
     "acceptor" : Acceptor.objects.all()
     }
     return render(request, "MedicalDonation/acceptor-add.html",context)
-
+@login_required(redirect_field_name="donor-login")
 def medicine_add(request):
     context ={
     "medicines" : medicine.objects.all()
@@ -105,6 +112,7 @@ def create_Collector(request):
             group = Group.objects.get(name="Collector")
             group.user_set.add(user)
             user.save()
+            return render(request,"MedicalDonation/homepage.html",context)
     return HttpResponseRedirect(reverse("Add_Collector"))
 
 
@@ -123,6 +131,7 @@ def create_Doner(request):
             group = Group.objects.get(name="Donor")
             group.user_set.add(user)
             user.save()
+            return render(request,"MedicalDonation/homepage.html",{})
     return HttpResponseRedirect(reverse("add_donor"))
 
 
@@ -141,6 +150,7 @@ def create_Acceptor(request):
             group = Group.objects.get(name="Acceptor")
             group.user_set.add(user)
             user.save()
+            return render(request,"MedicalDonation/homepage.html",{})
     return HttpResponseRedirect(reverse("add_acceptor"))
 
 
@@ -148,6 +158,7 @@ def create_Medicine(request):
     if request.POST:
         med = medicine(name=request.POST['name'],mfgdate=request.POST['manufacturing_date'],expdate=request.POST['expiry_date'],manufacturer=request.POST['manufacturer'],tradename=request.POST['trade_name'],composition=request.POST['chemical_composition'],uses=request.POST['uses'],quantity=request.POST['quantity'],sideeffect=request.POST['side_effects'],saltcomposition=request.POST['salt_composition'],dosage=request.POST['dosage'])
         med.save()
+        return render(request,"MedicalDonation/homepage.html",{})
     return HttpResponseRedirect(reverse("add_medicine"))
 
 

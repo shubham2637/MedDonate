@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
             name='Acceptor',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=64)),
+                ('name', models.CharField(max_length=64,serialize=True)),
                 ('proprietor', models.CharField(max_length=64)),
                 ('license_no', models.CharField(max_length=64)),
                 ('address', models.CharField(max_length=128)),

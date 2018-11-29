@@ -37,11 +37,11 @@
         <form action="create_Collector" method="post" enctype="multipart/form-data">
           {% csrf_token %}
             <p>name</p>
-            <input type="text" name="name" placeholder="Enter Username">
+            <input type="text" name="name" placeholder="Enter Full Name" required="true">
 			<p>address</p>
-			<input type="text" name="address" placeholder="Enter Address">
+			<input type="text" name="address" placeholder="Enter Address" required="true">
 			<p>city</p>
-			<input id="inputCity" type="text" name="address3" placeholder="Enter City">
+			<input id="inputCity" type="text" name="address3" placeholder="Enter City" required="true">
 			<p>state</p>
 			<select name="address4" >
 			<option selected>Choose...</option>
@@ -82,23 +82,23 @@
 <option value="West Bengal">West Bengal</option>
 			</select>
 			<p>pincode</p>
-			<input type="number" name="pincode" placeholder="Enter Pincode">
+			<input type="number" name="pincode" placeholder="Enter Pincode" required="true" maxlength="6">
 			<p>phone_no</p>
-			<input type="number" name="phone_no" placeholder="Enter Phone number">
+			<input type="number" required="true" name="phone_no" placeholder="Enter Phone number" maxlength="10">
 			<p>date of birth</p>
-			<input type="date" name="birth" placeholder="Enter DOB">
+			<input type="date" name="birth" placeholder="Enter DOB" required="true">
 			<p>uid no</p>
-			<input type="number" name="uid" placeholder="Enter UID No">
+			<input type="number" name="uid" placeholder="Enter UID No" required="true" maxlength="16">
 			<p>email id</p>
-			<input type="email" name="email" placeholder="Enter Email Id">
+			<input type="email" name="email" placeholder="Enter Email Id" required="true">
 			<p>username</p>
-			<input type="text" name="username" placeholder="Enter Username">
+			<input type="text" name="username" placeholder="Enter Username" required="true">
             <p>password</p>
-            <input type="password" name="password" placeholder="Enter Password">
+            <input type="password" name="password" placeholder="Enter Password" required="true">
 			<p>driving license number</p>
-          <input type="text" name="Driving_license" placeholder="Enter Driving license no.">
+          <input type="text" name="Driving_license" placeholder="Enter Driving license no." required="true">
 			<p>qualification</p>
-			<select name="qualification">
+			<select name="qualification" required="true">
         <option selected>-- Select Group --</option>
         <option>10th pass</option>
         <option>12th pass</option>
@@ -106,9 +106,9 @@
         <option>PG</option>
       </select>
 			<p>upload image</p>
-			<input type="file" name="image" placeholder="Upload your photo">
+			<input type="file" name="image" placeholder="Upload your photo" required="true">
 		<p>upload driving license photo</p>
-		<input type="file" name="Driving_License_image" placeholder="Upload driving license photo">
+		<input type="file" name="Driving_License_image" placeholder="Upload driving license photo" required="true">
             <input type="submit" action="create_Collector" value="Sign Up Collector">
            <!-- <a href="#">Lost your password?</a><br>
             <a href="#">Don't have an account?</a>

@@ -13,7 +13,7 @@ path("acceptor-login",LoginView.as_view(template_name="MedicalDonation/Acceptor-
 
 path("donor-login", LoginView.as_view(template_name="MedicalDonation/Donor-login.html"), name="Donorlogin"),
 
-path("logout", LogoutView.as_view, name="logout"),
+path("logout", LogoutView.as_view(template_name="MedicalDonation/logot.html"), name="logout"),
 
 path("collector", views.collectors, name= "Collector_view"),
 
@@ -23,8 +23,9 @@ path("acceptor", views.acceptors, name= "Acceptor_view"),
 
 path("medicines", views.medicines, name= "Medicine_view"),
 
-path("job",views.jobs, name="job_view"),
+path("Completed_job",views.jobs_completed, name="job_complete"),
 
+path("assigned_job",views.jobs_assigned, name="jobs_assigned"),
 
 
 path("acceptor-home/<str:username>", views.acceptor_dash, name="acceptorhome"),

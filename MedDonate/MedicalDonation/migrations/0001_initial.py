@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Collector',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=64)),
+                ('name', models.CharField(max_length=64,serialize=True)),
                 ('address', models.CharField(max_length=128)),
                 ('pinCode', models.IntegerField()),
                 ('Phone_no', models.IntegerField()),
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
             name='Doner',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=64)),
+                ('name', models.CharField(max_length=64,serialize=True)),
                 ('address', models.CharField(max_length=128)),
                 ('pinCode', models.IntegerField()),
                 ('Phone_no', models.IntegerField()),

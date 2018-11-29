@@ -41,14 +41,14 @@ function goBack() {
           {% csrf_token %}
 
             <p>name</p>
-            <input type="text" name="name" placeholder="Enter Username">
+            <input type="text" name="name" placeholder="Enter Username" required="true">
 
             <p>address</p>
-            <input type="text" name="address1" placeholder="Enter Address">
+            <input type="text" name="address1" placeholder="Enter Address" required="true">
             <p>city</p>
-            <input id="inputCity" type="text" name="address3" placeholder="Enter City">
+            <input id="inputCity" type="text" name="address3" placeholder="Enter City" required="true">
             <p>state</p>
-            <select name="address4" >
+            <select name="address4" required="true">
             <option selected>Choose...</option>
               <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
         <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -87,22 +87,22 @@ function goBack() {
         <option value="West Bengal">West Bengal</option>
             </select>
             <p>pincode</p>
-            <input type="number" name="pinCode" placeholder="Enter Pincode" maxlength="6">
+            <input type="number" name="pinCode" placeholder="Enter Pincode" maxlength="6" required="true">
 			<p>phone_no</p>
-			<input type="number" name="Phone_no" placeholder="Enter Phone number">
+			<input type="number" name="Phone_no" placeholder="Enter Phone number" required="true" maxlength="10">
 			<p>date of birth</p>
-			<input type="date" name="birth" placeholder="Enter DOB">
+			<input type="date" name="birth" placeholder="Enter DOB" required="true">
 			<p>uid no</p>
-			<input type="number" name="uid" placeholder="Enter UID No">
+			<input type="number" required="true" maxlength="16" name="uid" placeholder="Enter UID No">
 			<p>email id</p>
-			<input type="email" name="email" placeholder="Enter Email Id">
+			<input type="email" name="email" placeholder="Enter Email Id" required="true">
 			<p>username</p>
-			<input type="text" name="username" placeholder="Enter Username">
+			<input type="text" name="username" placeholder="Enter Username" required="true">
 
         <p>password</p>
-        <input type="password" name="password" placeholder="Enter Password">
+        <input type="password" name="password" placeholder="Enter Password" required="true">
         <p>upload image</p>
-        <input type="file" name="image" placeholder="Upload your photo">
+        <input type="file" name="image" placeholder="Upload your photo" required="true">
         <input type="submit" name="" value="Sign Up Donor">
            <!-- <a href="#">Lost your password?</a><br>
             <a href="#">Don't have an account?</a>

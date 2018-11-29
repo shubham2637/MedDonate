@@ -40,21 +40,21 @@
         <form method="post" action="create_Acceptor" enctype="multipart/form-data">
           {% csrf_token %}
             <p>name</p>
-            <input type="text" name="name" placeholder="Enter Medical Name">
+            <input type="text" name="name" placeholder="Enter Medical Name" required="true">
 			<p>proprietor name</p>
-            <input type="text" name="proprietor" placeholder="Enter Proprietor Name">
+            <input type="text" name="proprietor" placeholder="Enter Proprietor Name" required="true">
 			<p>license number</p>
-            <input type="text" name="license_no" placeholder="Enter License Number">
+            <input type="text" name="license_no" placeholder="Enter License Number" required="true">
 			<p>phone_no</p>
-			<input type="number" name="Phone_no" placeholder="Enter Phone number">
+			<input type="number" name="Phone_no" placeholder="Enter Phone number" maxlength="10" required="true">
 			<p>opening time</p>
-			<input type="time" name="start_time" placeholder="Enter Opening time">
+			<input type="time" name="start_time" placeholder="Enter Opening time" required="true">
 			<p>closing time</p>
-			<input type="time" name="end_time" placeholder="Enter Closing time">
+			<input type="time" name="end_time" placeholder="Enter Closing time" required="true">
 			<p>address</p>
-			<input type="text" name="address1" placeholder="Enter Address">
+			<input type="text" name="address1" placeholder="Enter Address" required="true">
 			<p>city</p>
-			<input id="inputCity" type="text" name="address3" placeholder="Enter City">
+			<input id="inputCity" type="text" name="address3" placeholder="Enter City" required="true">
 			<p>state</p>
 			<select name="address4" >
 			<option selected>Choose...</option>
@@ -95,13 +95,13 @@
 <option value="West Bengal">West Bengal</option>
 			</select>
 			<p>pincode</p>
-			<input type="number" name="pinCode" placeholder="Enter Pincode" maxlength="6">
+			<input type="number" name="pinCode" placeholder="Enter Pincode" maxlength="6" required="true">
 			<p>uid no</p>
-			<input type="number" name="UID" placeholder="Enter UID No" maxlength="16">
+			<input type="number" name="UID" placeholder="Enter UID No" maxlength="16" required="true">
 			<p>email id</p>
-			<input type="email" name="email" placeholder="Enter Email Id">
+			<input type="email" name="email" placeholder="Enter Email Id" required="true">
 			<p>username</p>
-			<input type="text" name="username" placeholder="Enter Username">
+			<input type="text" name="username" placeholder="Enter Username" required="true">
             <p>password</p>
             <input type="password" name="password" placeholder="Enter Password">
 		<p>upload license photo</p>
