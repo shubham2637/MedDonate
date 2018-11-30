@@ -37,7 +37,7 @@
 
           <th> <b>Mobile Number</b> </th>
 
-          <th> <b>Image</b> </th>
+          <!-- <th> <b>Image</b> </th> -->
         </thead>
 
         {% for c in collectors %}
@@ -51,7 +51,7 @@
             <td>{{c.username}}</td>
 
             <td>{{c.Phone_no}}</td>
-            <td><img src="{{ MEDIA_URL }}{{c.image}}" alt={{c.image}} /></td>
+            <!-- <td><img src="{{ MEDIA_URL }}{{c.image}}" alt={{c.image}} /></td> -->
         </tbody>
 
         {% endfor  %}
