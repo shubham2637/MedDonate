@@ -38,7 +38,7 @@ dask==0.17.5
 datashape==0.5.4
 decorator==4.3.0
 distributed==1.21.8
-Django==2.1.7
+Django==2.2.10
 django-crispy-forms==1.7.2
 django-filter==2.1.0
 django-tastypie==0.14.2
