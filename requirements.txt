@@ -167,7 +167,7 @@ python-language-server==0.24.0
 python-mimeparse==1.6.0
 pytz==2018.9
 PyWavelets==0.5.2
-PyYAML==3.12
+PyYAML==5.4
 pyzmq==17.0.0
 QtAwesome==0.4.4
 qtconsole==4.3.1
