@@ -146,7 +146,7 @@ pycurl==7.43.0.1
 pyfcm==1.4.5
 pyflakes==1.6.0
 pygame==1.9.4
-Pygments==2.2.0
+Pygments==2.7.4
 PyJWT==1.7.1
 pylint==1.8.4
 pyodbc==4.0.23
